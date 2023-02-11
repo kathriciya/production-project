@@ -32,6 +32,8 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
+    'arrow-body-style': 'off',
+    'react/self-closing-comp': 'off',
   },
   globals: {
     __IS_DEV__: true,

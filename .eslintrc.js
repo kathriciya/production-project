@@ -35,11 +35,22 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'arrow-body-style': 'off',
     'react/self-closing-comp': 'off',
-    'i18next/no-literal-string': ['error', { markupOnly: true }],
-    'max-len': ['error', { code: 100, ignoreComments: true }],
+    'i18next/no-literal-string': [
+      'error',
+      { markupOnly: true, ignoreAttribute: ['data-testid'] },
+    ],
+    'max-len': ['error', { code: 110, ignoreComments: true }],
     'comma-dangle': 1,
   },
   globals: {
     __IS_DEV__: true,
   },
+  overrides: [
+    {
+      files: ['**/src/**/*.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off',
+      },
+    },
+  ],
 };

@@ -11,9 +11,7 @@ i18n
     fallbackLng: false,
     debug: __IS_DEV__,
     interpolation: { escapeValue: false },
-    backend: {
-      loadPath: '/locales/{{lng}}/{{ns}}.json',
-    },
+    backend: { loadPath: '/locales/{{lng}}/{{ns}}.json' },
   });
 
 export default i18n;

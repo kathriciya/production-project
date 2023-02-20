@@ -1,15 +1,9 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-    jest: true,
-  },
+  env: { browser: true, es2021: true, jest: true },
   extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
+    ecmaFeatures: { jsx: true },
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
@@ -41,16 +35,13 @@ module.exports = {
     ],
     'max-len': ['error', { code: 110, ignoreComments: true }],
     'comma-dangle': 1,
+    'object-curly-newline': ['error', { multiline: true }],
   },
-  globals: {
-    __IS_DEV__: true,
-  },
+  globals: { __IS_DEV__: true },
   overrides: [
     {
       files: ['**/src/**/*.test.{ts,tsx}'],
-      rules: {
-        'i18next/no-literal-string': 'off',
-      },
+      rules: { 'i18next/no-literal-string': 'off' },
     },
   ],
 };

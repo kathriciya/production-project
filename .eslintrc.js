@@ -41,6 +41,8 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
     'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
     'operator-linebreak': 2,
+    'no-param-reassign': 'off',
+
   },
   globals: { __IS_DEV__: true },
   overrides: [

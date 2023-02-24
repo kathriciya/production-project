@@ -5,7 +5,9 @@
     }
   },
   "Toggle": "Toggle",
+  "decrement": "decrement",
   "hdfgjhfjkhgjdfgjfdktrgjkretg": "hdfgjhfjkhgjdfgjfdktrgjkretg",
+  "increment": "increment",
   "throw error": "throw error",
   "toggle": "toggle",
   "Войти": "Войти",

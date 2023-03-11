@@ -10,6 +10,7 @@ import { AppRouter } from './providers/router';
 const App = () => {
   const { theme } = useTheme();
   const dispatch = useDispatch();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(userActions.initAuthData());

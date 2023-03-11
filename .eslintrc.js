@@ -43,9 +43,9 @@ module.exports = {
     'no-param-reassign': 'off',
     'arrow-body-style': ['error', 'as-needed'],
     'implicit-arrow-linebreak': 1,
-
+    'no-undef': 'off',
   },
-  globals: { __IS_DEV__: true },
+  globals: { __IS_DEV__: true, __API__: true },
   overrides: [
     {
       files: ['**/src/**/*.{test,stories}.{ts,tsx}'],

@@ -11,7 +11,7 @@ module.exports = {
   rules: {
     'react/jsx-indent': [2, 2],
     'react/jsx-indent-props': [2, 2],
-    indent: [2, 2],
+    indent: [1, 2],
     'react/jsx-filename-extension': [
       2,
       { extensions: ['.js', '.jsx', '.tsx'] },
@@ -27,21 +27,22 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
-    'arrow-body-style': 'off',
     'react/self-closing-comp': 'off',
     'i18next/no-literal-string': [
       'error',
       { markupOnly: true, ignoreAttribute: ['data-testid', 'to'] },
     ],
-    'max-len': ['error', { code: 180, ignoreComments: true }],
+    'max-len': ['error', { code: 200, ignoreComments: true }],
     'comma-dangle': 1,
-    'object-curly-newline': ['error', { multiline: true }],
+    'object-curly-newline': 1,
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
     'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
-    'operator-linebreak': 2,
+    'operator-linebreak': 1,
     'no-param-reassign': 'off',
+    'arrow-body-style': ['error', 'as-needed'],
+    'implicit-arrow-linebreak': 1,
 
   },
   globals: { __IS_DEV__: true },

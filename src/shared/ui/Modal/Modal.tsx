@@ -21,7 +21,9 @@ interface ModalProps {
 const ANIMATION_DELAY = 300;
 
 export const Modal = (props: ModalProps) => {
-  const { className, children, isOpen, onClose, lazy } = props;
+  const {
+    className, children, isOpen, onClose, lazy,
+  } = props;
 
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -51,7 +53,7 @@ export const Modal = (props: ModalProps) => {
         closeHandler();
       }
     },
-    [closeHandler]
+    [closeHandler],
   );
 
   const onContentClick = (e: React.MouseEvent) => {

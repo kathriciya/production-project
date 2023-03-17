@@ -33,3 +33,11 @@ Dark.decorators = [
     user: { authData: {} },
   }),
 ];
+
+export const NoAuth = Template.bind({});
+NoAuth.args = {};
+NoAuth.decorators = [
+  StoreDecorator({
+    user: {},
+  }),
+];

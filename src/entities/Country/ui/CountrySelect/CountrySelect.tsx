@@ -20,14 +20,16 @@ const options = [
 ];
 
 export const CountrySelect = memo(
-  ({ className, value, onChange, readonly }: CountrySelectProps) => {
+  ({
+    className, value, onChange, readonly,
+  }: CountrySelectProps) => {
     const { t } = useTranslation();
 
     const onChangeHandler = useCallback(
       (value: string) => {
         onChange?.(value as Country);
       },
-      [onChange]
+      [onChange],
     );
 
     return (
@@ -40,5 +42,5 @@ export const CountrySelect = memo(
         readonly={readonly}
       />
     );
-  }
+  },
 );

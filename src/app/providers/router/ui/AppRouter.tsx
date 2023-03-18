@@ -9,15 +9,14 @@ const AppRouter = () => {
   const isAuth = useSelector(getUserAuthData);
 
   const routes = useMemo(
-    () =>
-      Object.values(routeConfig).filter((route) => {
-        if (route.authOnly && !isAuth) {
-          return false;
-        }
+    () => Object.values(routeConfig).filter((route) => {
+      if (route.authOnly && !isAuth) {
+        return false;
+      }
 
-        return true;
-      }),
-    [isAuth]
+      return true;
+    }),
+    [isAuth],
   );
   return (
     <Suspense fallback={<PageLoader />}>

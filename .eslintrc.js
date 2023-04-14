@@ -30,7 +30,7 @@ module.exports = {
     'react/self-closing-comp': 'off',
     'i18next/no-literal-string': [
       'error',
-      { markupOnly: true, ignoreAttribute: ['data-testid', 'to'] },
+      { markupOnly: true, ignoreAttribute: ['data-testid', 'to', 'target'] },
     ],
     'max-len': ['error', { code: 200, ignoreComments: true }],
     'comma-dangle': 1,

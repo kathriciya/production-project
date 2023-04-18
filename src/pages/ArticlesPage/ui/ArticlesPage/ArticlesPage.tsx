@@ -3,14 +3,12 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
-import { classNames } from 'shared/lib/classNames/classNames';
 import {
   DynamicModuleLoader,
   ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Page } from 'widgets/Page/Page';
 import {
   getArticlesPageError,
   getArticlesPageIsLoading,
@@ -33,6 +31,8 @@ const reducers: ReducersList = {
   articlesPage: articlesPageReducer,
 };
 
+const Header = () => <ArticlesPageFilters />;
+
 const ArticlesPage = (props: ArticlesPageProps) => {
   const { className } = props;
   const { t } = useTranslation();
@@ -53,18 +53,14 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <Page
-        onScrollEnd={onLoadNextPart}
-        className={classNames(cls.ArticlesPage, {}, [className])}
-      >
-        <ArticlesPageFilters />
-        <ArticleList
-          isLoading={isLoading}
-          view={view}
-          articles={articles}
-          className={cls.list}
-        />
-      </Page>
+      <ArticleList
+        isLoading={isLoading}
+        view={view}
+        articles={articles}
+        className={cls.list}
+        onLoadNextPart={onLoadNextPart}
+        Header={Header}
+      />
     </DynamicModuleLoader>
   );
 };

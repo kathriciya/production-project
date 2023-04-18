@@ -2,6 +2,7 @@ import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { ARTICLES_LIST_ITEM_LOCALSTORAGE_IDX } from 'shared/const/localstorage';
 import { classNames } from 'shared/lib/classNames/classNames';
 import AppLink from 'shared/ui/AppLink/AppLink';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
@@ -23,11 +24,12 @@ interface ArticleListItemProps {
   article: Article;
   view: ArticleView;
   target?: HTMLAttributeAnchorTarget;
+  index: number;
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
   const {
-    className, article, view, target,
+    className, article, view, target, index,
   } = props;
   const { t } = useTranslation();
 
@@ -38,6 +40,13 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
       <Icon Svg={EyeIcon} />
     </>
   );
+
+  const handleButtonClick = () => {
+    sessionStorage.setItem(
+      ARTICLES_LIST_ITEM_LOCALSTORAGE_IDX,
+      JSON.stringify(index),
+    );
+  };
 
   if (view === ArticleView.BIG) {
     const textBlock = article.blocks.find(
@@ -68,7 +77,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
               target={target}
               to={RoutePath.article_details + article.id}
             >
-              <Button theme={ButtonTheme.OUTLINE}>
+              <Button theme={ButtonTheme.OUTLINE} onClick={handleButtonClick}>
                 {t('Читать далее...')}
               </Button>
             </AppLink>
@@ -84,6 +93,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
       target={target}
       to={RoutePath.article_details + article.id}
       className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+      onClick={handleButtonClick}
     >
       <Card className={cls.card}>
         <div className={cls.imageWrapper}>

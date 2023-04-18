@@ -11,6 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
 import { ARTICLES_LIST_ITEM_LOCALSTORAGE_IDX } from 'shared/const/localstorage';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { HStack } from 'shared/ui/Stack';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -24,6 +25,7 @@ interface ArticleListProps {
   target?: HTMLAttributeAnchorTarget;
   onLoadNextPart?: () => void;
   Header?: () => JSX.Element;
+  virtualized?: boolean;
 }
 
 const getSkeletons = () => new Array(3)
@@ -41,6 +43,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     className,
     articles,
     view = ArticleView.SMALL,
+    virtualized = true,
     isLoading,
     target,
     onLoadNextPart,
@@ -80,6 +83,17 @@ export const ArticleList = memo((props: ArticleListProps) => {
       index={index}
     />
   );
+
+  if (!virtualized) {
+    return (
+      <HStack wrap="wrap" gap="16">
+        {articles.length > 0
+          ? articles.map((article, index) => renderArticle(index, article))
+          : null}
+        {isLoading && getSkeletons()}
+      </HStack>
+    );
+  }
 
   const Footer = memo(() => {
     if (isLoading) {

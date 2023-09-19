@@ -28,15 +28,16 @@ interface ArticleListProps {
   virtualized?: boolean;
 }
 
-const getSkeletons = () => new Array(3)
-  .fill(0)
-  .map((item, index) => (
-    <ArticleListItemSkeleton
-      className={cls.card}
-      key={index}
-      view={ArticleView.BIG}
-    />
-  ));
+const getSkeletons = () =>
+  new Array(3)
+    .fill(0)
+    .map((item, index) => (
+      <ArticleListItemSkeleton
+        className={cls.card}
+        key={index}
+        view={ArticleView.BIG}
+      />
+    ));
 
 export const ArticleList = memo((props: ArticleListProps) => {
   const {
@@ -54,7 +55,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
   const virtuosoGridRef = useRef<VirtuosoGridHandle>(null);
 
   useEffect(() => {
-    const paged = sessionStorage.getItem(ARTICLES_LIST_ITEM_LOCALSTORAGE_IDX) || 1;
+    const paged =
+      sessionStorage.getItem(ARTICLES_LIST_ITEM_LOCALSTORAGE_IDX) || 1;
     setSelectedArticleId(+paged);
 
     // return () => sessionStorage.removeItem(ARTICLES_LIST_ITEM_LOCALSTORAGE_IDX);

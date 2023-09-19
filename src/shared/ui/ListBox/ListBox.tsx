@@ -2,7 +2,6 @@ import { Listbox as HListBox } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DropdownDirection } from 'shared/types/ui';
-import { Button } from '../Button/Button';
 import { HStack } from '../Stack';
 import cls from './ListBox.module.scss';
 
@@ -54,9 +53,9 @@ export function ListBox(props: ListBoxProps) {
         value={value}
         onChange={onChange}
       >
-        <HListBox.Button disabled={readonly} className={cls.trigger}>
+        {/* <HListBox.Button disabled={readonly} className={cls.trigger}>
           <Button disabled={readonly}>{value ?? defaultValue}</Button>
-        </HListBox.Button>
+        </HListBox.Button> */}
         <HListBox.Options
           className={classNames(cls.options, {}, optionsClasses)}
         >

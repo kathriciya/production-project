@@ -88,9 +88,9 @@ export const ProfileCard = (props: ProfileCardProps) => {
       className={classNames(cls.ProfileCard, mods, [className])}
     >
       {data?.avatar && (
-        <div className={cls.avatarWrapper}>
+        <HStack justify="center" max className={cls.avatarWrapper}>
           <Avatar src={data?.avatar} />
-        </div>
+        </HStack>
       )}
       <Input
         value={data?.first}
@@ -98,6 +98,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         className={cls.input}
         onChange={onChangeFirstname}
         readonly={readonly}
+        data-testid="ProfileCard.firstname"
       />
       <Input
         value={data?.lastname}
@@ -105,6 +106,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         className={cls.input}
         onChange={onChangeLastname}
         readonly={readonly}
+        data-testid="ProfileCard.lastname"
       />
       <Input
         value={data?.age}

@@ -28,9 +28,7 @@ interface ArticleListItemProps {
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
-  const {
-    className, article, view, target, index,
-  } = props;
+  const { className, article, view, target, index } = props;
   const { t } = useTranslation();
 
   const types = <Text text={article.type.join(', ')} className={cls.types} />;
@@ -44,13 +42,13 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   const handleButtonClick = () => {
     sessionStorage.setItem(
       ARTICLES_LIST_ITEM_LOCALSTORAGE_IDX,
-      JSON.stringify(index),
+      JSON.stringify(index)
     );
   };
 
   if (view === ArticleView.BIG) {
     const textBlock = article.blocks.find(
-      (block) => block.type === ArticleBlockType.TEXT,
+      (block) => block.type === ArticleBlockType.TEXT
     ) as ArticleTextBlock;
 
     return (

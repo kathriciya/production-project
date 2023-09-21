@@ -1,4 +1,3 @@
-import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
 import {
   FC,
   HTMLAttributeAnchorTarget,
@@ -9,10 +8,11 @@ import {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
-import { ARTICLES_LIST_ITEM_LOCALSTORAGE_IDX } from 'shared/const/localstorage';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { HStack } from 'shared/ui/Stack';
-import { Text, TextSize } from 'shared/ui/Text/Text';
+import { ArticleListItemSkeleton } from '@/entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
+import { ARTICLES_LIST_ITEM_LOCALSTORAGE_IDX } from '@/shared/const/localstorage';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { HStack } from '@/shared/ui/Stack';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
@@ -28,16 +28,15 @@ interface ArticleListProps {
   virtualized?: boolean;
 }
 
-const getSkeletons = () =>
-  new Array(3)
-    .fill(0)
-    .map((item, index) => (
-      <ArticleListItemSkeleton
-        className={cls.card}
-        key={index}
-        view={ArticleView.BIG}
-      />
-    ));
+const getSkeletons = () => new Array(3)
+  .fill(0)
+  .map((item, index) => (
+    <ArticleListItemSkeleton
+      className={cls.card}
+      key={index}
+      view={ArticleView.BIG}
+    />
+  ));
 
 export const ArticleList = memo((props: ArticleListProps) => {
   const {
@@ -55,8 +54,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
   const virtuosoGridRef = useRef<VirtuosoGridHandle>(null);
 
   useEffect(() => {
-    const paged =
-      sessionStorage.getItem(ARTICLES_LIST_ITEM_LOCALSTORAGE_IDX) || 1;
+    const paged = sessionStorage.getItem(ARTICLES_LIST_ITEM_LOCALSTORAGE_IDX) || 1;
     setSelectedArticleId(+paged);
 
     // return () => sessionStorage.removeItem(ARTICLES_LIST_ITEM_LOCALSTORAGE_IDX);

@@ -61,6 +61,7 @@ module.exports = {
     'no-undef': 'off',
     'react/no-array-index-key': 'off',
     'react/jsx-wrap-multilines': 1,
+    'import/order': [1, { 'newlines-between': 'ignore' }],
   },
   globals: { __IS_DEV__: true, __API__: true, __PROJECT__: true },
   overrides: [

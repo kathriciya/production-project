@@ -43,6 +43,7 @@ module.exports = {
           'role',
           'wrap',
           'as',
+          'border',
         ],
       },
     ],
@@ -59,6 +60,7 @@ module.exports = {
     'implicit-arrow-linebreak': 1,
     'no-undef': 'off',
     'react/no-array-index-key': 'off',
+    'react/jsx-wrap-multilines': 1,
   },
   globals: { __IS_DEV__: true, __API__: true, __PROJECT__: true },
   overrides: [

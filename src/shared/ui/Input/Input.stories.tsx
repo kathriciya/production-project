@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+
 import { Input } from '@/shared/ui/Input/Input';
 
 export default {

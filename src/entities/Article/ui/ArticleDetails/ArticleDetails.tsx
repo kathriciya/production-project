@@ -1,6 +1,7 @@
 import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
 import { ArticleCodeBlockComponent } from '@/entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '@/entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '@/entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
@@ -17,14 +18,16 @@ import { Icon } from '@/shared/ui/Icon/Icon';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text, TextAlign, TextSize } from '@/shared/ui/Text/Text';
+
+import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
+import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from '../../model/selectors/articleDetails';
-import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
-import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+
 import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {

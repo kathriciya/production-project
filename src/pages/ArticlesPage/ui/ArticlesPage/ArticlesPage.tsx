@@ -2,13 +2,15 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
-import { ArticleList } from '@/entities/Article';
+
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
   DynamicModuleLoader,
   ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { ArticleList } from '@/entities/Article';
+
 import {
   getArticlesPageError,
   getArticlesPageIsLoading,
@@ -21,6 +23,7 @@ import {
   getArticles,
 } from '../../model/slices/articlesPageSlice';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/AtriclesPageFilters';
+
 import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {

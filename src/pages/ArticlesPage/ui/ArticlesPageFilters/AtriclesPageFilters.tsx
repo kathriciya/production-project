@@ -1,6 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
 import { ArticleType } from '@/entities/Article/model/types/article';
 import {
   ArticleSortField,
@@ -15,6 +16,9 @@ import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { SortOrder } from '@/shared/types';
 import { Card } from '@/shared/ui/Card/Card';
 import { Input } from '@/shared/ui/Input/Input';
+
+import { articlesPageActions } from '../../model/slices/articlesPageSlice';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import {
   getArticlesPageOrder,
   getArticlesPageSearch,
@@ -22,8 +26,7 @@ import {
   getArticlesPageType,
   getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
-import { articlesPageActions } from '../../model/slices/articlesPageSlice';
+
 import cls from './ArticlesPageFilters.module.scss';
 
 interface ArticlesPageFiltersProps {

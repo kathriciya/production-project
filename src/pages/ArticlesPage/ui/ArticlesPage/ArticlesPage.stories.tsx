@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+
 import { ArticleView } from '@/entities/Article';
 import {
   ArticleBlockType,

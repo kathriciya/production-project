@@ -7,7 +7,13 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
+  plugins: [
+    'react',
+    '@typescript-eslint',
+    'i18next',
+    'react-hooks',
+    'khyati-plugin',
+  ],
   rules: {
     'react/jsx-indent': [2, 2],
     'react/jsx-indent-props': [2, 2],
@@ -61,6 +67,7 @@ module.exports = {
     'no-undef': 'off',
     'react/no-array-index-key': 'off',
     'react/jsx-wrap-multilines': 1,
+    'khyati-plugin/path-checker': ['error', { alias: '@' }],
     'import/order': [
       'error',
       {

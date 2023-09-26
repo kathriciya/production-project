@@ -13,13 +13,13 @@ import { Input } from '@/shared/ui/Input/Input';
 import { HStack } from '@/shared/ui/Stack';
 
 import {
-  addCommentFormActions,
-  addCommentFormReducer,
-} from '../../model/slices/addCommentFormSlice';
-import {
   getAddCommentFormError,
   getAddCommentFormText,
 } from '../../model/selectors/addCommentFormSelectors';
+import {
+  addCommentFormActions,
+  addCommentFormReducer,
+} from '../../model/slices/addCommentFormSlice';
 
 import cls from './AddCommentForm.module.scss';
 
@@ -43,7 +43,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
     (value: string) => {
       dispatch(addCommentFormActions.setText(value));
     },
-    [dispatch],
+    [dispatch]
   );
 
   const onSendHandler = useCallback(() => {

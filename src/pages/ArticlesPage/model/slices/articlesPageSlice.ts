@@ -10,18 +10,18 @@ import {
   ArticleSortField,
   ArticleType,
 } from '@/entities/Article/model/types/article';
-import { ArticlesPageSchema } from '@/pages/ArticlesPage';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { SortOrder } from '@/shared/types';
 
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
+import { ArticlesPageSchema } from '../../model/types/articlesPageSchema';
 
 const articlesAdapter = createEntityAdapter<Article>({
   selectId: (article) => article.id,
 });
 
 export const getArticles = articlesAdapter.getSelectors<StateSchema>(
-  (state) => state.articlesPage || articlesAdapter.getInitialState(),
+  (state) => state.articlesPage || articlesAdapter.getInitialState()
 );
 
 const articlesPageSlice = createSlice({
@@ -63,7 +63,7 @@ const articlesPageSlice = createSlice({
     },
     initState: (state) => {
       const view = localStorage.getItem(
-        ARTICLES_VIEW_LOCALSTORAGE_KEY,
+        ARTICLES_VIEW_LOCALSTORAGE_KEY
       ) as ArticleView;
       state.view = view;
       state.limit = view === ArticleView.BIG ? 4 : 9;
@@ -97,4 +97,5 @@ const articlesPageSlice = createSlice({
   },
 });
 
-export const { reducer: articlesPageReducer, actions: articlesPageActions } = articlesPageSlice;
+export const { reducer: articlesPageReducer, actions: articlesPageActions } =
+  articlesPageSlice;

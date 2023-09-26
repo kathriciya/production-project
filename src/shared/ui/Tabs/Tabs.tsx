@@ -1,7 +1,8 @@
 import { memo, ReactNode, useCallback } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card, CardTheme } from '@/shared/ui/Card/Card';
+
+import { Card, CardTheme } from '../Card/Card';
 
 import cls from './Tabs.module.scss';
 
@@ -18,15 +19,13 @@ interface TabsProps {
 }
 
 export const Tabs = memo((props: TabsProps) => {
-  const {
-    className, tabs, onTabClick, value,
-  } = props;
+  const { className, tabs, onTabClick, value } = props;
 
   const clickHandle = useCallback(
     (tab: TabItem) => () => {
       onTabClick(tab);
     },
-    [onTabClick],
+    [onTabClick]
   );
 
   return (

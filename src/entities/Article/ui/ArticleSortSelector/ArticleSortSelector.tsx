@@ -1,10 +1,11 @@
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ArticleSortField } from '@/entities/Article/model/types/article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { SortOrder } from '@/shared/types';
 import { Select, SelectOption } from '@/shared/ui/Select/Select';
+
+import { ArticleSortField } from '../../model/types/article';
 
 import cls from './ArticleSortSelector.module.scss';
 
@@ -17,9 +18,7 @@ interface ArticleSortSelectorProps {
 }
 
 export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
-  const {
-    className, onChangeOrder, onChangeSort, order, sort,
-  } = props;
+  const { className, onChangeOrder, onChangeSort, order, sort } = props;
   const { t } = useTranslation();
 
   const orderOptions = useMemo<SelectOption[]>(
@@ -33,7 +32,7 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
         content: t('убыванию'),
       },
     ],
-    [t],
+    [t]
   );
 
   const sortFieldOptions = useMemo<SelectOption[]>(
@@ -51,21 +50,21 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
         content: t('просмотрам'),
       },
     ],
-    [t],
+    [t]
   );
 
   const changeSortHandler = useCallback(
     (newSort: string) => {
       onChangeSort(newSort as ArticleSortField);
     },
-    [onChangeSort],
+    [onChangeSort]
   );
 
   const changeOrderHandler = useCallback(
     (newOrder: string) => {
       onChangeOrder(newOrder as SortOrder);
     },
-    [onChangeOrder],
+    [onChangeOrder]
   );
 
   return (

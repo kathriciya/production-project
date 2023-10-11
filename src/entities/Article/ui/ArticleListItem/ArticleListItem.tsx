@@ -2,8 +2,8 @@ import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { ARTICLES_LIST_ITEM_LOCALSTORAGE_IDX } from '@/shared/const/localstorage';
+import { RoutePath } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import AppLink from '@/shared/ui/AppLink/AppLink';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
@@ -12,13 +12,13 @@ import { Card } from '@/shared/ui/Card/Card';
 import { Icon } from '@/shared/ui/Icon/Icon';
 import { Text } from '@/shared/ui/Text/Text';
 
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import {
   Article,
   ArticleBlockType,
   ArticleTextBlock,
   ArticleView,
 } from '../../model/types/article';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 import cls from './ArticleListItem.module.scss';
 
@@ -31,9 +31,7 @@ interface ArticleListItemProps {
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
-  const {
-    className, article, view, target, index,
-  } = props;
+  const { className, article, view, target, index } = props;
   const { t } = useTranslation();
 
   const types = <Text text={article.type.join(', ')} className={cls.types} />;
@@ -47,13 +45,13 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   const handleButtonClick = () => {
     sessionStorage.setItem(
       ARTICLES_LIST_ITEM_LOCALSTORAGE_IDX,
-      JSON.stringify(index),
+      JSON.stringify(index)
     );
   };
 
   if (view === ArticleView.BIG) {
     const textBlock = article.blocks.find(
-      (block) => block.type === ArticleBlockType.TEXT,
+      (block) => block.type === ArticleBlockType.TEXT
     ) as ArticleTextBlock;
 
     return (

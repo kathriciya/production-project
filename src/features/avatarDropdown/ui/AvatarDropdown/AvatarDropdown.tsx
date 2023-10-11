@@ -8,7 +8,7 @@ import {
   isUserManager,
   userActions,
 } from '@/entities/User';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
@@ -42,11 +42,11 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
       items={[
         ...(isAdminPanelAvailable
           ? [
-            {
-              content: t('Админка'),
-              href: RoutePath.admin_panel,
-            },
-          ]
+              {
+                content: t('Админка'),
+                href: RoutePath.admin_panel,
+              },
+            ]
           : []),
         {
           content: t('Профиль'),

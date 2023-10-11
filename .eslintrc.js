@@ -68,7 +68,17 @@ module.exports = {
     'react/no-array-index-key': 'off',
     'react/jsx-wrap-multilines': 1,
     'khyati-plugin/path-checker': ['error', { alias: '@' }],
-    'khyati-plugin/public-api-imports': ['error', { alias: '@' }],
+    'khyati-plugin/public-api-imports': [
+      'error',
+      {
+        alias: '@',
+        testFilesPatterns: [
+          '**/*.test.*',
+          '**/*.story.*',
+          '**/StoreDecorator.tsx',
+        ],
+      },
+    ],
     'import/order': [
       'error',
       {

@@ -14,7 +14,7 @@ import { LoginSchema } from '@/features/AuthByUsername';
 import { UISchema } from '@/features/UI';
 import { AddCommentFormSchema } from '@/features/addCommentForm';
 import { ProfileSchema } from '@/features/editableProfileCard';
-import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage/model/types';
+import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from '@/pages/ArticlesPage';
 import { rtkApi } from '@/shared/api/rtkApi';
 
